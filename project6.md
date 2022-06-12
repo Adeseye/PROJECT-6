@@ -28,13 +28,13 @@ Run *gdisk* utility to create a single partition on each of the 3 disks
 
 Type <code>n</code> to create a new partition,
 
-Select 1 to set it as default partition number
+Select <code>1</code> to set it as default partition number
 
-Type *p* to preview the changes made 
+Type <code>p</code> to preview the changes made 
 
-Type *w* to write to disk 
+Type <code>w</code> to write to disk 
 
-Finally type *y* to confirm to proceed.
+Finally type <code>y</code> to confirm to proceed.
 
 Do this for the next 2 disk. 
 
