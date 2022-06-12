@@ -36,7 +36,7 @@ Type *w* to write to disk
 
 Finally type *y* to confirm to proceed.
 
-Do this for the next 2 disk
+Do this for the next 2 disk. 
 
 ![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdf%20step%201.JPG)
 
@@ -48,6 +48,9 @@ Do this for the next 2 disk
 
 ![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdg%20step%201.JPG)
 
-Repeat this step for 3 disk for the Database server.
+Repeat this step for 3 remaining disk for the Database server.
 
+Use the *lsblk* utility to view the newly configured partition on each of the 3 disk
+
+![alt text](./Images/Second%20Attempt/lsblk%20ultility%20step1.JPG)
  
