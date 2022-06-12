@@ -90,8 +90,8 @@ NOTE: apps-lv will be used to store data for the Website while, logs-lv will be 
 
 <code>sudo lvcreate -n apps-lv -L 14G webdata-vg</code>
 
-<code>sudo lvcreate -n logs-lv -L 14G webdata-vg</code>
-
 ![alt text](./Images/Second%20Attempt/step%206%20lvcreate%201a.JPG)
+
+<code>sudo lvcreate -n logs-lv -L 14G webdata-vg</code>
 
 ![alt text](./Images/Second%20Attempt/step%206%20lvcreate%201b.JPG)
