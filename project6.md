@@ -48,8 +48,6 @@ Do this for the next 2 disk.
 
 ![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdg%20step%201.JPG)
 
-Repeat this step for 3 remaining disk for the Database server.
-
 Use the <code>lsblk</code> utility to view the newly configured partition on each of the 3 disk
 
 ![alt text](./Images/Second%20Attempt/lsblk%20ultility%20step1.JPG)
@@ -73,3 +71,15 @@ Use the <code>lsblk</code> utility to view the newly configured partition on eac
 Verify that your Physical volume has been created successfully by running <code>sudo pvs</code>
 
 ![alt text](./Images/Second%20Attempt/step%203a%20sudo%20pvs.JPG)
+
+Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
+
+<code>sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1</code>
+
+![alt text](./Images/Second%20Attempt/step%204%20vgcreate.JPG)
+
+Verify that your VG has been created successfully by running <code>sudo vgs</code>
+
+![alt text](./Images/Second%20Attempt/step%205%20very%20VG%20is%20created%20sudo%20vgs.JPG)
+
+Now repeat the steps above to configure 3 10GB disk for Data server 
