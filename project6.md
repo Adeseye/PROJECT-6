@@ -62,15 +62,11 @@ Use the <code>lsblk</code> utility to view the newly configured partition on eac
 
  Use <code>pvcreate</code> utility to mark each of the 3 disk as a physical volumes (PVs) to be used by LVM.
 
- <code>
- 
- sudo pvcreate /dev/xvdf1
+ <code> sudo pvcreate /dev/xvdf1</code>
 
-sudo pvcreate /dev/xvdg1
+<code>sudo pvcreate /dev/xvdg1</code>
 
-sudo pvcreate /dev/xvdh1
-
-</code>
+<code>sudo pvcreate /dev/xvdh1</code>
 
 ![alt text](./Images/Second%20Attempt/step%203%20pscreate%20ultility.JPG)
 
