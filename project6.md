@@ -26,7 +26,15 @@ Run *gdisk* utility to create a single partition on each of the 3 disks
 
 <code>sudo gdisk /dev/xvdf</code>
 
-Type *n* to create a new partition, select 1 to set it as default partition number and the *p* to list the changes made then type *w* to write to disk then finally type *y* to confirm to proceed.
+Type *n* to create a new partition,
+
+Select 1 to set it as default partition number
+
+Type *p* to preview the changes made 
+
+Type *w* to write to disk 
+
+Finally type *y* to confirm to proceed.
 
 Do this for the next 2 disk
 
