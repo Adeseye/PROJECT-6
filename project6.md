@@ -26,7 +26,7 @@ Run *gdisk* utility to create a single partition on each of the 3 disks
 
 <code>sudo gdisk /dev/xvdf</code>
 
-Type *n* to create a new partition,
+Type <code>n</code> to create a new partition,
 
 Select 1 to set it as default partition number
 
@@ -50,7 +50,8 @@ Do this for the next 2 disk.
 
 Repeat this step for 3 remaining disk for the Database server.
 
-Use the *lsblk* utility to view the newly configured partition on each of the 3 disk
+Use the <code>lsblk</code> utility to view the newly configured partition on each of the 3 disk
 
 ![alt text](./Images/Second%20Attempt/lsblk%20ultility%20step1.JPG)
  
+ Next install <code>lvm2</code>
