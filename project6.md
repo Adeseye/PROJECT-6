@@ -82,4 +82,16 @@ Verify that your VG has been created successfully by running <code>sudo vgs</cod
 
 ![alt text](./Images/Second%20Attempt/step%205%20very%20VG%20is%20created%20sudo%20vgs.JPG)
 
-Now repeat the steps above to configure 3 10GB disk for Data server 
+Now repeat the steps above to configure 3 Disk for Data server 
+
+Next use <code>lvcreate</code> utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the PV size.
+
+NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
+
+<code>sudo lvcreate -n apps-lv -L 14G webdata-vg</code>
+
+<code>sudo lvcreate -n logs-lv -L 14G webdata-vg</code>
+
+![alt text](./Images/Second%20Attempt/step%206%20lvcreate%201a.JPG)
+
+![alt text](./Images/Second%20Attempt/step%206%20lvcreate%201b.JPG)
