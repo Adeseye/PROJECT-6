@@ -54,4 +54,26 @@ Use the <code>lsblk</code> utility to view the newly configured partition on eac
 
 ![alt text](./Images/Second%20Attempt/lsblk%20ultility%20step1.JPG)
  
- Next install <code>lvm2</code>
+ Next install lvm2 package using <code>sudo yum install lvm2</code>
+
+ ![alt text](./Images/Second%20Attempt/install%20lvm2%20step%202.JPG)
+
+ ![alt text](./Images/Second%20Attempt/lmv2%20successfully%20installed%20step2.JPG)
+
+ Use <code>pvcreate</code> utility to mark each of the 3 disk as a physical volumes (PVs) to be used by LVM.
+
+ <code>
+ 
+ sudo pvcreate /dev/xvdf1
+
+sudo pvcreate /dev/xvdg1
+
+sudo pvcreate /dev/xvdh1
+
+</code>
+
+![alt text](./Images/Second%20Attempt/step%203%20pscreate%20ultility.JPG)
+
+Verify that your Physical volume has been created successfully by running <code>sudo pvs</code>
+
+![alt text](./Images/Second%20Attempt/step%203a%20sudo%20pvs.JPG)
