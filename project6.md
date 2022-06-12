@@ -12,12 +12,34 @@ Now with the first stage I will create two Linux servers, one for Web server and
 
 ![alt text](./Images/Servers.JPG)
 
-Next - Create 3 volumes for both Web server & Database server.
+Next - Create 3 disk each 10GB in size for both Web server & Database server, attach them to both servers.
 
-![alt text](./Images/create%203%20volumes%202.JPG)
-
-Attach all 3 volumes to both webserver & Database server
-
-![alt text](./Images/all%20attched%20volumes%202c.JPG)
+![alt text](./Images/Second%20Attempt/Database%20server/step1a%20attach%20all%20volumes%20to%20database%20server.JPG)
 
 Launch the Linux Webserver, open terminal to begin configuration.  
+
+Run *lsblk* command to inspect what block devices are attached to the server.
+
+![alt text](./Images/Second%20Attempt/step%201%20lsblk.JPG)
+
+Run *gdisk* utility to create a single partition on each of the 3 disks
+
+<code>sudo gdisk /dev/xvdf</code>
+
+Type *n* to create a new partition, select 1 to set it as default partition number and the *p* to list the changes made then type *w* to write to disk then finally type *y* to confirm to proceed.
+
+Do this for the next 2 disk
+
+![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdf%20step%201.JPG)
+
+<code>sudo gdisk /dev/xvdh</code>
+
+![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdh%20step%201.JPG)
+
+<code>sudo gdisk /dev/xvdg</code>
+
+![alt text](./Images/Second%20Attempt/sudo%20gdisk%20dev%20xvdg%20step%201.JPG)
+
+Repeat this step for 3 disk for the Database server.
+
+ 
