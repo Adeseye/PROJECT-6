@@ -4,9 +4,9 @@ In this project I will be setting up a storage infrastructure on two Linux serve
 
 This project is divided into two stages
 
-First stage :- Configure storage subsystem for Web and Database servers based on Linux OS. This involves working with disks, partitions and volumes in Linux.
+First stage : Configure storage subsystem for Web and Database servers based on Linux OS. This involves working with disks, partitions and volumes in Linux.
 
-Second stage :- Install WordPress and connect it to a remote MySQL database server.
+Second stage : Install WordPress and connect it to a remote MySQL database server.
 
 Now with the first stage I will create two Linux servers, one for Web server and the other for Database server
 
@@ -18,11 +18,11 @@ Next - Create 3 disk each 10GB in size for both Web server & Database server, at
 
 Launch the Linux Webserver, open terminal to begin configuration.  
 
-Run *lsblk* command to inspect what block devices are attached to the server.
+Run <code>lsblk</code> command to inspect what block devices are attached to the server.
 
 ![alt text](./Images/Second%20Attempt/step%201%20lsblk.JPG)
 
-Run *gdisk* utility to create a single partition on each of the 3 disks
+Run <code>gdisk</code> utility to create a single partition on each of the 3 disks
 
 <code>sudo gdisk /dev/xvdf</code>
 
