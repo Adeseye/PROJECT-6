@@ -176,3 +176,40 @@ Verify your setup by running <code>df -h</code>
 
 ![alt text](./Images/Second%20Attempt/step%2016%20verify%20%20setup%20is%20running.JPG)
 
+Now begin the second stage;
+
+## CONFIGURE THE DATABASE SERVER
+
+Launch a second RedHat EC2 instance that will have a role – ‘DB Server’
+Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/
+
+Create and attach 30GB Volume for the Database server 
+
+![alt text](./Images/database%20server/another%2030GB%20volume%20for%20Database%20server.JPG)
+
+
+Run <code>lsblk</code> command to inspect what block devices are attached to the Database server, run <code> gdisk</code> utility to create a single partition on each of the 3 disks
+
+<code>sudo gdisk /dev/xvdf</code>
+
+![alt text](./Images/database%20server/mount%20xvdf%20database%20server%201.JPG)
+
+<code>sudo gdisk /dev/xvdh</code>
+
+![alt text](./Images/database%20server/mount%20xvdh%20database%20server%203.JPG)
+
+
+<code> sudo gdisk /dev/xvdg</code>
+
+![alt text](./Images/database%20server/mount%20xvdf%20database%20server%202.JPG)
+
+Install <code>Lvm2</code>
+
+![alt text](./Images/database%20server/installing%20lvm2%20on%20databse%20server%202.JPG)
+
+Install wget, Apache and it’s dependencies
+
+<code>sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json</code>
+
+![alt text](./Images/database%20server/install%20wget%2C%20apache%20and%20its%20dependences%20step%2010.JPG)
+
