@@ -95,3 +95,39 @@ NOTE: apps-lv will be used to store data for the Website while, logs-lv will be 
 <code>sudo lvcreate -n logs-lv -L 14G webdata-vg</code>
 
 ![alt text](./Images/Second%20Attempt/step%206%20lvcreate%201b.JPG)
+
+Verify that your Logical Volume has been created successfully by running <code>sudo lvs</code>
+
+![alt text](./Images/Second%20Attempt/step%207%20very%20logicaal%20volume%20sudo%20lvs.JPG)
+
+Verify the entire setup
+
+<code>sudo vgdisplay -v #view complete setup - VG, PV, and LV</code> 
+
+![alt text](./Images/Second%20Attempt/step%208%20very%20the%20whole%20setup%20sudo%20vgdisplay.JPG)
+
+Run <code>sudo lsblk</code>
+
+![alt text](./Images/Second%20Attempt/step%209%20sudo%20lsblk.JPG)
+
+Use mkfs.ext4 to format the logical volumes with ext4 filesystem
+
+<code>sudo mkfs -t ext4 /dev/webdata-vg/apps-lv</code>
+<code>sudo mkfs -t ext4 /dev/webdata-vg/logs-lv</code>
+
+![alt text](./Images/Second%20Attempt/step%2010%20mkfs%20ext4%20logical%20volume.JPG)
+
+
+Create **/var/www/html** directory to store website files
+
+<code>sudo mkdir -p /var/www/html</code>
+
+Create **/home/recovery/logs** to store backup of log data
+
+<code>sudo mkdir -p /home/recovery/logs</code>
+
+Mount **/var/www/html on apps-lv** logical volume
+
+<code>sudo mount /dev/webdata-vg/apps-lv /var/www/html/</code>
+
+![alt text](./Images/Second%20Attempt/step%2011%20making%20directory%20create%20logs%20mount%20apps-lv.JPG)
