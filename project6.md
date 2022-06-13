@@ -82,8 +82,6 @@ Verify that your VG has been created successfully by running <code>sudo vgs</cod
 
 ![alt text](./Images/Second%20Attempt/step%205%20very%20VG%20is%20created%20sudo%20vgs.JPG)
 
-Now repeat the steps above to configure 3 Disk for Data server 
-
 Next use <code>lvcreate</code> utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the PV size.
 
 NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
@@ -131,3 +129,50 @@ Mount **/var/www/html on apps-lv** logical volume
 <code>sudo mount /dev/webdata-vg/apps-lv /var/www/html/</code>
 
 ![alt text](./Images/Second%20Attempt/step%2011%20making%20directory%20create%20logs%20mount%20apps-lv.JPG)
+
+
+Use rsync utility to backup all the files in the log directory **/var/log** into **/home/recovery/logs** (This is required before mounting the file system)
+
+<code>sudo rsync -av /var/log/. /home/recovery/logs/</code>
+
+![alt text](./Images/Second%20Attempt/step%2012%20use%20resync%20ultility.JPG)
+
+
+Mount **/var/log** on **logs-lv** logical volume. (Note that all the existing data on /var/log will be deleted. That is why step above is very important
+
+<code>sudo mount /dev/webdata-vg/logs-lv /var/log</code>
+
+Restore log files back into **/var/log** directory
+
+<code>sudo rsync -av /home/recovery/logs/. /var/log</code>
+
+![alt text](./Images/Second%20Attempt/step%2013%20mount%20logs%20restore%20log%20files.JPG)
+
+Next is to update /etc/fstab file so the mount configuration will persist/remain after a restart of the server.
+
+The UUID of the device will be used to update the /etc/fstab file;
+
+<code>sudo blkid</code>
+
+High light and copy the UUID details 
+
+![alt text](./Images/Second%20Attempt/step%2014%20update%20etc%20fstab%20file%20sudo%20blkid.JPG)
+
+<code>sudo vi /etc/fstab</code>
+
+Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+![alt text](image.jpg)
+
+Test the configuration and reload the daemon
+
+ <code>sudo mount -a</code>
+
+ <code>sudo systemctl daemon-reload</code>
+
+ ![alt text](./Images/Second%20Attempt/step%2015%20test%20configuration%20and%20reload%20daemon.JPG)
+
+Verify your setup by running <code>df -h</code>
+
+![alt text](./Images/Second%20Attempt/step%2016%20verify%20%20setup%20is%20running.JPG)
+
