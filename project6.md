@@ -207,9 +207,52 @@ Install <code>Lvm2</code>
 
 ![alt text](./Images/database%20server/installing%20lvm2%20on%20databse%20server%202.JPG)
 
+Update the repository by running this command <code>sudo yum -y update</code>
+
+![alt text](./Images/database%20server/sudo%20yum%20-y%20update%20step%209a.JPG)
+
+![alt text](./Images/database%20server/sudo%20yum%20-y%20update%20step%209b.JPG)
+
 Install wget, Apache and it’s dependencies
 
 <code>sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json</code>
 
 ![alt text](./Images/database%20server/install%20wget%2C%20apache%20and%20its%20dependences%20step%2010.JPG)
+
+Start Apache
+
+![alt text](./Images/database%20server/Start%20Apache%20step%2011.JPG)
+
+Running these commands
+
+<code>sudo systemctl enable httpd</code>
+
+<code>sudo systemctl start httpd</code>
+
+![alt text](./Images/database%20server/Start%20Apache%20step%2011.JPG)
+
+To install PHP and it’s dependencies by running the commands:
+
+<code>sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm</code>
+
+
+<code>sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm</code>
+
+<code>sudo yum module list php</code>
+
+<code>sudo yum module reset php</code>
+
+<code>sudo yum module enable php:remi-7.4</code>
+
+<code>sudo yum install php php-opcache php-gd php-curl php-mysqlnd</code>
+
+<code>sudo systemctl start php-fpm</code>
+
+<code>sudo systemctl enable php-fpm</code>
+
+<code>setsebool -P httpd_execmem </code>
+
+Restart Apache by running this command 
+
+<code> sudo systemctl restart httpd</code>
 
