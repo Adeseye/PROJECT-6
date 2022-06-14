@@ -256,3 +256,67 @@ Restart Apache by running this command
 
 <code> sudo systemctl restart httpd</code>
 
+Next is to Download wordpress and copy wordpress to var/www/html
+
+![alt text](./Images/database%20server/download%20word%20press%20step%2014.JPG)
+
+Configure SELinux Policies 
+
+![alt text](./Images/database%20server/Configure%20SELinux%20Policies%20step%2016.JPG)
+
+Next us to  install MSQL on Database Server
+
+![alt text](./Images/database%20server/Installing%20MySQL%20on%20Database%20server%20step%2017.JPG)
+
+Verify that the service is up and running by using sudo systemctl status mysqld, if it is not running, restart the service and enable it so it will be running even after reboot: Run commands :
+
+<code>sudo systemctl restart mysqld</code>
+
+<code>sudo systemctl enable mysqld</code>
+
+![alt text](./Images/database%20server/check%20msql%20status%20if%20its%20running%20step%2018.JPG)
+
+
+Configure DataBase to work with WordPress
+
+Install and configure MySQL
+
+![alt text](./Images/Second%20Attempt/Database%20server/Step%2028%20configure%20DB%20to%20work%20with%20Word%20press.JPG)
+
+
+![alt text](./Images/Second%20Attempt/Database%20server/step%2028b%20configuring%20DB%20to%20work%20with%20wordpress.JPG)
+
+![alt text](./Images/Second%20Attempt/Database%20server/step%2028%20c%20configuring%20DB%20to%20work%20with%20wordpress.JPG)
+
+Configure WordPress to connect to remote database.
+
+Create MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
+
+![alt text](./Images/Second%20Attempt/Capture.JPG)
+
+Now test you can connect from your Web Server to Database server by using MySQL-client, also verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases.
+
+![alt text](./Images/Second%20Attempt/step%2020%20test%20web%20server%20can%20communicate%20with%20database%20server.JPG)
+
+Now I'm going to attempt to access from my browser the link to my WordPress
+
+<code>http://<35.117.218.228>/wordpress/</code>
+
+![alt text](./Images/Second%20Attempt/step%2028%20type%20in%20web%20server%20ip%20address%20into%20browser%20to%20access%20wordpress.JPG)
+
+Fill out Database credentials, click install WordPress button to complete the setup. This confirms Wordpress successfully connected to remote MySQL database
+
+![alt text](./Images/Second%20Attempt/step%2029%20fill%20out%20database%20credentials.JPG)
+
+Login to Wordpress
+
+![alt text](./Images/Second%20Attempt/step%2030%20login%20to%20word%20press.JPG)
+
+Welcome screen now I can configure WordPress from the Dashboard 
+
+![alt text](./Images/Second%20Attempt/step%2031%20successfully%20logged%20in.JPG)
+
+I have successfully configured Linux storage subsystem, deployed a full scale Web Solution using WordPress CMS and MySQL RDBMS.
+
+
+END....
