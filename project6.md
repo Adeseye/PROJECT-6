@@ -162,7 +162,6 @@ High light and copy the UUID details
 
 Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
 
-![alt text](image.jpg)
 
 Test the configuration and reload the daemon
 
